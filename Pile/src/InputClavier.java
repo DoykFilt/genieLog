@@ -1,9 +1,9 @@
 public class InputClavier extends Input {
 
-	public static String CLEAR = "CLEAR";
-	public static String QUIT = "CLEAR";
-	public static String PUSH = "PUSH";
-	public static String POP = "POP";
+	final static String CLEAR = "CLEAR";
+	final static String QUIT = "CLEAR";
+	final static String PUSH = "PUSH";
+	final static String POP = "POP";
 	
 	private String commande;
 	

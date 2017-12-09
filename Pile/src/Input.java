@@ -1,10 +1,10 @@
 
 public abstract class Input {
 
-	public static int CODECLEAR = 0;
-	public static int CODEQUIT = 1;
-	public static int CODEPUSH = 2;
-	public static int CODEPOP = 3;
+	final static int CODECLEAR = 0;
+	final static int CODEQUIT = 1;
+	final static int CODEPUSH = 2;
+	final static int CODEPOP = 3;
 	
 	private int code;
 	
