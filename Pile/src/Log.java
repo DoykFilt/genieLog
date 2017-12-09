@@ -1,23 +1,26 @@
-public class Log {
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
+public class Log {
+	
 	private String path;
+	private File file;
+	private FileWriter fileWriter;
 
 	private ManagerInput inputManagement;
 
-	public void Log(String path) {
+	public Log(String path) throws IOException {
+		this.path = path;
+		file = new File(path);
 
+		if(!file.exists())
+			file.createNewFile();
+		fileWriter = new FileWriter(file);
 	}
 
-	public void ActiverLog() {
-
-	}
-
-	public void DesactiverLog() {
-
-	}
-
-	public void AjouterLigne(String commande) {
-
+	public void AjouterLigne(String commande) throws IOException {
+		fileWriter.write(commande);
 	}
 
 	public String getPath() {

@@ -1,3 +1,7 @@
-public class InputVocal implements Input {
+public class InputVocal extends Input {
+
+	public InputVocal() {
+		super();
+	}
 
 }
