@@ -58,7 +58,7 @@ public class TopView implements Observer {
 	 * @author Thibaud Beaufils & Camille Thomeczek
 	 */
 	private class Pannel extends JPanel{
-		private String elmt;
+		private String elmt = "";
 		
 		/**
 		 * Affiche l'element 

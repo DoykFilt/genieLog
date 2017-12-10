@@ -11,6 +11,7 @@ public class ManagerInput {
 	private ArrayList<Input> inputs;
 	private Log log;
 	private Stack stack;
+	private Scanner sc;
 	
 	/**
 	 * 
@@ -18,9 +19,15 @@ public class ManagerInput {
 	 * @throws IOException
 	 */
 	public ManagerInput(String pathLog) throws IOException {
+
+		sc = new Scanner(System.in);
 		inputs = new ArrayList<>();
 		log = new Log(pathLog);
 		stack = new Stack();
+	}
+	
+	public void getNextCommande() {
+		inputs.add(new InputClavier(sc.nextLine()));
 	}
 
 	public boolean ComputeNext() {
@@ -40,11 +47,15 @@ public class ManagerInput {
 			InputClavier input = (InputClavier)inputs.get(inputs.size() - 1);
 			Scanner s = new Scanner(input.getCommande());
 			try{
+				s.next();
 				stack.Add(s.nextInt());
 			}catch(InputMismatchException e){
 				System.out.println("Error invalid argument in " + InputClavier.PUSH);
 			}
 		}		
+		
+		for(int i = 0; i< stack.getSize(); i++)
+			System.out.println(stack.getElement(i));
 		
 		this.DeleteTop();
 		return true;
@@ -53,5 +64,4 @@ public class ManagerInput {
 	public void DeleteTop() {
 		inputs.remove(inputs.size() - 1);
 	}
-
 }

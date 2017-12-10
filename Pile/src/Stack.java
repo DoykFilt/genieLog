@@ -6,17 +6,15 @@ import java.util.Observer;
  * @author Thibaud Beaufils & Camille Thomeczek
  */
 public class Stack extends Observable {
-	
 	/**
 	 * pile 
 	 */
-	private ArrayList stack;
-	
+	private ArrayList<Integer> stack;
 	/**
 	 * 	Constructeur de la classe.
 	 */
 	public Stack(){
-		stack= new ArrayList();
+		stack= new ArrayList<>();
 	}
 	
 	/**
@@ -33,10 +31,10 @@ public class Stack extends Observable {
 	 */
 	public void Del() {
 		if(!stack.isEmpty())
-			{
+		{
 			stack.remove(stack.size() -1);
 			notifyObservers();
-			}		
+		}		
 	}
 
 	/**
@@ -53,7 +51,7 @@ public class Stack extends Observable {
 	 * @return element a la position passee en parametres
 	 */
 	public String getElement(int position){
-		return (String) stack.get(position);
+		return Integer.toString(stack.get(position));
 	}
 	
 	/**

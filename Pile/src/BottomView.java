@@ -52,13 +52,11 @@ public class BottomView implements Observer {
 			bottomSize = stack.getSize();
 		if(bottomSize !=0)
 		{
-			for(int i=0; i<bottomSize;i++)
+			for(int i = 0; i < 5; i++)
 				bottomStack.add(stack.getElement(i));
 		}
 		else
 			bottomStack.add("empty stack");
-		
-		
 		
 		this.pannel.setElmt(bottomStack);
 	}
@@ -70,12 +68,16 @@ public class BottomView implements Observer {
 	private class Pannel extends JPanel{
 		private ArrayList<String> elmts;
 		
+		public Pannel(){
+			elmts = new ArrayList<>();
+		}
+		
 		/**
-		 * Affiche les element s
+		 * Affiche les elements
 		 */
 		public void paintComponent(Graphics g){
 			for(String elmt : this.elmts)
-				g.drawString(elmt, 10, 120 - (elmts.indexOf(elmt) * 20));
+				g.drawString(elmt, 120 - (elmts.indexOf(elmt) * 20), 10);
 		}
 		
 		/**
