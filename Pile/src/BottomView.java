@@ -17,6 +17,9 @@ public class BottomView implements Observer {
 	private JFrame windows;
 	private Pannel pannel;
 	
+	/**
+	 * Constructeur de la fenetre d'affichage du bas de la pile
+	 */
 	public BottomView(){
 		this.windows = new JFrame();
 		this.windows.setTitle("Stack Bottom");
@@ -30,17 +33,26 @@ public class BottomView implements Observer {
 		this.windows.setVisible(true);
 	}
 
+	/**
+	 * fermeture de la fenetre 
+	 */
 	public void stop() {
 		windows.dispose();
 	}
 
+	/**
+	 * actualisation de la vue lors d'un changement de la pile
+	 */
 	@Override
 	public void update(Observable observable, Object arg1) {
 		Stack stack = ( Stack ) observable;
 		ArrayList<String> bottomStack = new ArrayList<String>();
-		if(stack.getSize() !=0)
+		int bottomSize =5;
+		if(stack.getSize()<5)
+			bottomSize = stack.getSize();
+		if(bottomSize !=0)
 		{
-			for(int i=0; i<stack.getSize();i++)
+			for(int i=0; i<bottomSize;i++)
 				bottomStack.add(stack.getElement(i));
 		}
 		else
@@ -51,19 +63,31 @@ public class BottomView implements Observer {
 		this.pannel.setElmt(bottomStack);
 	}
 	
+	/**
+	 * Classe de la vue pour l'affichage du bas de la pile
+	 * @author Thibaud Beaufils & Camille Thomeczek
+	 */
 	private class Pannel extends JPanel{
 		private ArrayList<String> elmts;
 		
+		/**
+		 * Affiche les element s
+		 */
 		public void paintComponent(Graphics g){
 			for(String elmt : this.elmts)
 				g.drawString(elmt, 10, 120 - (elmts.indexOf(elmt) * 20));
 		}
 		
+		/**
+		 * Actualise le haut de pile et l'affiche
+		 * @param bottomStack nouveaux elemnts en bas de la pile
+		 */
 		public void setElmt(ArrayList<String> bottomStack){
 			if(!(this.elmts.toString().contentEquals(bottomStack.toString())));
 				{
-				this.elmts.addAll(bottomStack); // add ? ca remplace les valeurs precedentes ?
-				this.repaint();
+					this.elmts.clear();
+					this.elmts.addAll(bottomStack); 
+					this.repaint();
 				}
 		}
 	}

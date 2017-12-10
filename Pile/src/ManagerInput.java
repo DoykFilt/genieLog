@@ -12,6 +12,11 @@ public class ManagerInput {
 	private Log log;
 	private Stack stack;
 	
+	/**
+	 * 
+	 * @param pathLog
+	 * @throws IOException
+	 */
 	public ManagerInput(String pathLog) throws IOException {
 		inputs = new ArrayList<>();
 		log = new Log(pathLog);
