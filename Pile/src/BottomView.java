@@ -32,12 +32,20 @@ public class BottomView implements Observer {
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable observable, Object arg1) {
+		CommandeStack stack = ( CommandeStack ) observable;
+		ArrayList<String> bottomStack = new ArrayList<String>();
+		if(stack.getSize() !=0)
+		{
+			for(int i=0; i<stack.getSize();i++)
+				bottomStack.add(stack.getElement(i));
+		}
+		else
+			bottomStack.add("empty stack");
 		
-		/* normalement juste cette ligne devrait suffire pour actualiser l'affichage
-		 * avec elmt la liste des entiers à afficher (en ArrayList<String>)
-		this.pannel.setElmt(elmt);
-		*/
+		
+		
+		this.pannel.setElmt(bottomStack);
 	}
 	
 	private class Pannel extends JPanel{
@@ -48,10 +56,12 @@ public class BottomView implements Observer {
 				g.drawString(elmt, 10, 120 - (elmts.indexOf(elmt) * 20));
 		}
 		
-		public void setElmt(ArrayList<String> elmts)
-		{
-			this.elmts.addAll(elmts);
-			this.repaint();
+		public void setElmt(ArrayList<String> bottomStack){
+			if(!(this.elmts.toString().contentEquals(bottomStack.toString())));
+				{
+				this.elmts.addAll(bottomStack); // add ? ca remplace les valeurs precedentes ?
+				this.repaint();
+				}
 		}
 	}
 

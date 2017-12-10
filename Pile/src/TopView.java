@@ -31,12 +31,14 @@ public class TopView implements Observer {
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
-		
-		/* normalement juste cette ligne devrait suffire pour actualiser l'affichage
-		 * avec elmt l'entier (en string)
+	public void update(Observable observable, Object arg1) {
+		CommandeStack stack = ( CommandeStack ) observable;
+		String elmt;
+		if(stack.getSize() !=0)
+			elmt = stack.getElement(stack.getSize() -1);
+		else
+			elmt = "empty stack";
 		this.pannel.setElmt(elmt);
-		*/
 	}
 	
 	private class Pannel extends JPanel{
