@@ -2,17 +2,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
+/**
+ * Classe gestion de gestion des entrées
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public class ManagerInput {
 
 	private ArrayList<Input> inputs;
 	private Log log;
-	private CommandeStack commandeStack;
+	private Stack stack;
 	
 	public ManagerInput(String pathLog) throws IOException {
 		inputs = new ArrayList<>();
 		log = new Log(pathLog);
-		commandeStack = new CommandeStack();
+		stack = new Stack();
 	}
 
 	public boolean ComputeNext() {
@@ -25,14 +28,14 @@ public class ManagerInput {
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODEQUIT)
 			System.exit(0);
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODECLEAR)
-			commandeStack.Clr();
+			stack.Clr();
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODEPOP)
-			commandeStack.Del();
+			stack.Del();
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODEPUSH){
 			InputClavier input = (InputClavier)inputs.get(inputs.size() - 1);
 			Scanner s = new Scanner(input.getCommande());
 			try{
-				commandeStack.Add(s.nextInt());
+				stack.Add(s.nextInt());
 			}catch(InputMismatchException e){
 				System.out.println("Error invalid argument in " + InputClavier.PUSH);
 			}

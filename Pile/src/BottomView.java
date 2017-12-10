@@ -6,7 +6,10 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+/**
+ * Classe de la vue pour l'affichage du bas de pile
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public class BottomView implements Observer {
 
 	private final int HEIGHT = 1000;
@@ -33,7 +36,7 @@ public class BottomView implements Observer {
 
 	@Override
 	public void update(Observable observable, Object arg1) {
-		CommandeStack stack = ( CommandeStack ) observable;
+		Stack stack = ( Stack ) observable;
 		ArrayList<String> bottomStack = new ArrayList<String>();
 		if(stack.getSize() !=0)
 		{

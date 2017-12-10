@@ -1,7 +1,10 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/**
+ * Classe pour l'enregistrement des actions affectuées par l'utilisateur.
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public class Log {
 	
 	private String path;

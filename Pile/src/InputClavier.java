@@ -1,3 +1,7 @@
+/**
+ * Classe de gestion de la saisie par clavier.
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public class InputClavier extends Input {
 
 	final static String CLEAR = "CLEAR";

@@ -1,4 +1,7 @@
-
+/**
+ * Classe abstraite de des entrées.
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public abstract class Input {
 
 	final static int CODECLEAR = 0;

@@ -1,12 +1,15 @@
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-
-public class CommandeStack extends Observable {
+/**
+ * Classe gestion de la pile
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
+public class Stack extends Observable {
 
 	private ArrayList stack;
 	
-	public CommandeStack(){
+	public Stack(){
 		stack= new ArrayList();
 	}
 

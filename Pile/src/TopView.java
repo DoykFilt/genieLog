@@ -5,7 +5,10 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
+/**
+ * Classe de la vue pour l'affichage du haut de la pile
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public class TopView implements Observer {
 
 	private final int HEIGHT = 200;
@@ -32,7 +35,7 @@ public class TopView implements Observer {
 
 	@Override
 	public void update(Observable observable, Object arg1) {
-		CommandeStack stack = ( CommandeStack ) observable;
+		Stack stack = ( Stack ) observable;
 		String elmt;
 		if(stack.getSize() !=0)
 			elmt = stack.getElement(stack.getSize() -1);
