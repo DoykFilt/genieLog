@@ -9,12 +9,18 @@ public class Stack extends Observable {
 	/**
 	 * pile 
 	 */
-	private ArrayList<Integer> stack;
+	private ArrayList<Integer> stack = new ArrayList<>();
 	/**
 	 * 	Constructeur de la classe.
 	 */
-	public Stack(){
+	/*public Stack(){
 		stack= new ArrayList<>();
+	}*/
+	
+	
+	public void notifObservers(){
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**
@@ -23,7 +29,7 @@ public class Stack extends Observable {
 	 */
 	public void Add(int element) {
 		stack.add(element);
-		notifyObservers();					
+		notifObservers();
 	}
 
 	/**
@@ -33,7 +39,7 @@ public class Stack extends Observable {
 		if(!stack.isEmpty())
 		{
 			stack.remove(stack.size() -1);
-			notifyObservers();
+			notifObservers();
 		}		
 	}
 
@@ -42,7 +48,7 @@ public class Stack extends Observable {
 	 */
 	public void Clr() {
 		stack.clear();
-		notifyObservers();
+		notifObservers();
 	}
 
 	/**

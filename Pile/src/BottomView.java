@@ -16,6 +16,7 @@ public class BottomView implements Observer {
 	private final int WIDTH = 200;
 	private JFrame windows;
 	private Pannel pannel;
+	private Stack stack;
 	
 	/**
 	 * Constructeur de la fenetre d'affichage du bas de la pile
@@ -45,7 +46,6 @@ public class BottomView implements Observer {
 	 */
 	@Override
 	public void update(Observable observable, Object arg1) {
-		Stack stack = ( Stack ) observable;
 		ArrayList<String> bottomStack = new ArrayList<String>();
 		int bottomSize =5;
 		if(stack.getSize()<5)
@@ -94,4 +94,11 @@ public class BottomView implements Observer {
 		}
 	}
 
+	public Stack getStack() {
+        return stack;
+    }
+
+    public void setStack(Stack stack) {
+        this.stack = stack;
+    }
 }

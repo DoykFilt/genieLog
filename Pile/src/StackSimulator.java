@@ -11,7 +11,11 @@ public class StackSimulator {
 			
 			Stack stack = new Stack();
 			stack.addObserver(viewTop);
+			viewTop.setStack(stack);
 			stack.addObserver(viewBottom);
+			viewBottom.setStack(stack);
+			
+			
 			
 			while(true){
 				managerInput.getNextCommande();

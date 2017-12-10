@@ -15,6 +15,7 @@ public class TopView implements Observer {
 	private final int WIDTH = 200;
 	private JFrame windows;
 	private Pannel pannel;
+	private Stack stack;
 	
 	/**
 	 * Constructeur de la fenetre d'affichage du haut de la pile
@@ -44,13 +45,14 @@ public class TopView implements Observer {
 	 */
 	@Override
 	public void update(Observable observable, Object arg1) {
-		Stack stack = ( Stack ) observable;
 		String elmt;
 		if(stack.getSize() !=0)
 			elmt = stack.getElement(stack.getSize() -1);
 		else
 			elmt = "empty stack";
 		this.pannel.setElmt(elmt);
+	
+		
 	}
 	
 	/**
@@ -77,5 +79,13 @@ public class TopView implements Observer {
 			this.repaint();
 		}
 	}
+	
+	
+	public Stack getStack() {
+        return stack;
+    }
 
+    public void setStack(Stack stack) {
+        this.stack = stack;
+    }
 }

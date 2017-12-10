@@ -14,9 +14,9 @@ public class ManagerInput {
 	private Scanner sc;
 	
 	/**
-	 * 
-	 * @param pathLog
-	 * @throws IOException
+	 * Constructeur de la classe
+	 * @param pathLog chemin du fichier de log
+	 * @throws IOException Exception si probleme lors de la creation du fichier
 	 */
 	public ManagerInput(String pathLog) throws IOException {
 
@@ -26,10 +26,17 @@ public class ManagerInput {
 		stack = new Stack();
 	}
 	
+	/**
+	 * Accede a la commande saisie
+	 */
 	public void getNextCommande() {
 		inputs.add(new InputClavier(sc.nextLine()));
 	}
 
+	/**
+	 * Effectue des actions sur la pile en fonction de ce qui est saisit
+	 * @return vrai ou faux suivant la saisie
+	 */
 	public boolean ComputeNext() {
 		
 		if(inputs.get(inputs.size() - 1).getCode() == -1){
@@ -61,6 +68,9 @@ public class ManagerInput {
 		return true;
 	}
 
+	/**
+	 * supprime la derniere commande effectuee
+	 */
 	public void DeleteTop() {
 		inputs.remove(inputs.size() - 1);
 	}
