@@ -46,7 +46,8 @@ public class TopView implements Observer {
 	@Override
 	public void update(Observable observable, Object arg1) {
 		String elmt;
-		if(stack.getSize() !=0)
+		
+		if(stack.getSize() != 0)
 			elmt = stack.getElement(stack.getSize() -1);
 		else
 			elmt = "empty stack";

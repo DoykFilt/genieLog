@@ -1,5 +1,9 @@
 import java.io.IOException;
 
+/**
+ * Classe de la vue pour l'affichage du haut de la pile
+ * @author Thibaud Beaufils & Camille Thomeczek
+ */
 public class StackSimulator {
 
 	public static void main(String[] args) {

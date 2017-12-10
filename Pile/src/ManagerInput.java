@@ -37,12 +37,14 @@ public class ManagerInput {
 	 * Effectue des actions sur la pile en fonction de ce qui est saisit
 	 * @return vrai ou faux suivant la saisie
 	 */
-	public boolean ComputeNext() {
+	public boolean ComputeNext() throws IOException {
 		
 		if(inputs.get(inputs.size() - 1).getCode() == -1){
 			this.DeleteTop();
 			return false;
 		}
+
+		InputClavier input = (InputClavier)inputs.get(inputs.size() - 1);
 		
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODEQUIT)
 			System.exit(0);
@@ -51,18 +53,20 @@ public class ManagerInput {
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODEPOP)
 			stack.Del();
 		if(inputs.get(inputs.size() - 1).getCode() == Input.CODEPUSH){
-			InputClavier input = (InputClavier)inputs.get(inputs.size() - 1);
 			Scanner s = new Scanner(input.getCommande());
 			try{
 				s.next();
 				stack.Add(s.nextInt());
-			}catch(InputMismatchException e){
+				this.log.AjouterLigne(input.getCommande());
+			}catch(Exception e){
 				System.out.println("Error invalid argument in " + InputClavier.PUSH);
 			}
-		}		
-		
-		for(int i = 0; i< stack.getSize(); i++)
-			System.out.println(stack.getElement(i));
+			s.close();
+			this.DeleteTop();
+			return true;
+		}	
+
+		this.log.AjouterLigne(input.getCommande());
 		
 		this.DeleteTop();
 		return true;

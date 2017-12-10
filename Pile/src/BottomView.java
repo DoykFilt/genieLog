@@ -24,7 +24,7 @@ public class BottomView implements Observer {
 	public BottomView(){
 		this.windows = new JFrame();
 		this.windows.setTitle("Stack Bottom");
-		this.windows.setSize(HEIGHT, WIDTH);
+		this.windows.setSize(WIDTH, HEIGHT);
 		this.windows.setLocationRelativeTo(null);
 		this.windows.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -77,7 +77,7 @@ public class BottomView implements Observer {
 		 */
 		public void paintComponent(Graphics g){
 			for(String elmt : this.elmts)
-				g.drawString(elmt, 120 - (elmts.indexOf(elmt) * 20), 10);
+				g.drawString(elmt, 10, 120 - (elmts.indexOf(elmt) * 20));
 		}
 		
 		/**
@@ -86,11 +86,11 @@ public class BottomView implements Observer {
 		 */
 		public void setElmt(ArrayList<String> bottomStack){
 			if(!(this.elmts.toString().contentEquals(bottomStack.toString())));
-				{
-					this.elmts.clear();
-					this.elmts.addAll(bottomStack); 
-					this.repaint();
-				}
+			{
+				this.elmts.clear();
+				this.elmts.addAll(bottomStack); 
+				this.repaint();
+			}
 		}
 	}
 

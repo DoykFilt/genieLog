@@ -4,7 +4,9 @@
  * @author Thibaud Beaufils & Camille Thomeczek
  */
 public class InputVocal extends Input {
-
+	/**
+	 * Constructeur
+	 */
 	public InputVocal() {
 		super();
 	}

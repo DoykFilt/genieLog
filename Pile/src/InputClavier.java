@@ -9,14 +9,22 @@ public class InputClavier extends Input {
 	final static String PUSH = "PUSH";
 	final static String POP = "POP";
 	
+	/**
+	 * La commande telle que tapé par l'utilisateur
+	 */
 	private String commande;
-	
+	/**
+	 * Constructeur
+	 * @param commande, string
+	 */
 	public InputClavier(String commande) {
 		super();
 		this.commande = commande;
 		this.recognize();
 	}
-	
+	/**
+	 * Permet de reconnaitre le type de commande et de choisir le code associé
+	 */
 	public void recognize() {
 		int code = -1;
 		
@@ -32,6 +40,9 @@ public class InputClavier extends Input {
 		super.setCode(code);
 	}
 	
+	/**
+	 * Getteur de la commande
+	 */
 	public String getCommande(){
 		return this.commande;
 	}
